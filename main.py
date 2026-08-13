@@ -30,7 +30,7 @@ maiorvenda = 0
 melhor = 0
 
 for vendedor in range(num_vendedor):
-    if melhor < sum(vendas[vendedor]):
+    if maiorvenda < sum(vendas[vendedor]):
         maiorvenda = sum(vendas[vendedor])
         melhor = 1 + vendedor    
 print(f"O melhor vendedor e o {melhor} com o total de: R${maiorvenda}")
