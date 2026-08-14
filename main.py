@@ -1,37 +1,41 @@
 vendas = [
     [1200, 1500, 1100], 
     [1000, 1300, 1400], 
-    [900, 1700, 1600]
+    [900, 1700, 1600,8000]
     ]
 
-num_vendedor = len(vendas)
-num_mes = len(vendas[0])
+atual = 0
+for i in vendas:
+    atual +=1
+    for j in range(len(i)):
+            print(f"O {atual} vendedor vendeu no {j+1} mês R${i[j]}")
 
+for i in range(len(vendas)):
+    print(f"A soma das vendas do {i+1} vendedor é {sum(vendas[i])}")
 
-for vendedor in range(num_vendedor):
-    for mes in range(num_mes):
-            print(f"O {vendedor+1} vendedor vendeu no {mes+1} mês R${vendas[vendedor][mes]}")
+maior = 0
+for ver in vendas:
+    if maior < len(ver):
+        maior = len(ver)
 
-for vendedor in range(num_vendedor):
-    print(f"A soma das vendas do {vendedor+1} vendedor é {sum(vendas[vendedor])}")
-
-for mes in range(num_mes):
-    totalmes = 0
-    for vendedor in range(num_vendedor):
-        totalmes += vendas[vendedor][mes]
-    print(f"Total mês {mes+1}: R$ {totalmes}")
+for j in range(maior):
+    mes_tol = 0
+    for i in vendas:
+        if j < len(i):
+            mes_tol += i[j]
+    print(f"No {j+1} mẽs o total de vendas foi de: R${mes_tol}")
 
 total = 0
 for i in vendas:
-    total = sum(i) + total
-print(f"O total das vendas da empresa é {total}")
+    total += sum(i) 
+print(f"O total das vendas da empresa é R${total}")
 
 maiorvenda = 0
 melhor = 0
 
-for vendedor in range(num_vendedor):
-    if maiorvenda < sum(vendas[vendedor]):
-        maiorvenda = sum(vendas[vendedor])
-        melhor = 1 + vendedor    
+for i in range(len(vendas)):
+    if maiorvenda < sum(vendas[i]):
+        maiorvenda = sum(vendas[i])
+        melhor = 1 + i   
 print(f"O melhor vendedor e o {melhor} com o total de: R${maiorvenda}")
 
